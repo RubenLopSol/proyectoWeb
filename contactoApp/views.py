@@ -3,8 +3,10 @@ from .forms import FormularioContacto
 from django.core.mail import EmailMessage
 from django.conf import settings
 import traceback
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv()
 # Create your views here.
 def contacto(request):
     formulario_contacto = FormularioContacto()
@@ -18,7 +20,7 @@ def contacto(request):
             
             email = EmailMessage("Mensaje desde App Django", 
                                  "El usuario con nombre {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido),
-                                 "", ["rubenlopsol86@gmail.com"], reply_to=[email])
+                                 "", [os.environ.get("EMAIL_HOST_USER")], reply_to=[email])
             try:
                 email.send()
                 return redirect("/contacto/?valido")
