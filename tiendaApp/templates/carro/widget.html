@@ -1,0 +1,37 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if request.session.carro.items %}
+            {% for key, value in request.session.carro.items %}
+
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ value.nombre }}</td>
+                <td>{{ value.cantidad }}</td>
+                <td>
+                    <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-seccess">+</a>
+                    <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-seccess">-</a><br/>
+                    {{value.precio}} €
+                </td>
+                
+              </tr>
+
+            {% endfor %}
+        {% else %}
+        <tr aria-colspan="3">    
+            <td>Sin productos</td>
+        </tr>
+        {% endif %}
+      
+      
+      ---------------------------------------------------
+   
+    </tbody>
+  </table>
