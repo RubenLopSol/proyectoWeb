@@ -2,7 +2,8 @@ class Carro:
     def __init__(self, request):
         self.request= request
         self.session= request.session
-        self.carro=self.session.get("carro")
+        #eliminar el self. de las 3 siguientes lineas despues de crear la s sesiones y autenticaciones:
+        self.carro=self.session.get("carro") 
         if not self.carro:
             self.carro=self.session["carro"]={}
         # else:
@@ -21,6 +22,7 @@ class Carro:
             for key, value in self.carro.items():
                 if key==str(producto.id):
                     value["cantidad"]=value["cantidad"]+1
+                    value["precio"]=float(value["precio"])+float(producto.precio)
                     break
         self.guardar_carro()
     
@@ -38,6 +40,7 @@ class Carro:
         for key, value in self.carro.items():
             if key==str(producto.id):
                 value["cantidad"]=value["cantidad"]-1
+                value["precio"]=float(value["precio"])-float(producto.precio)
                 if value["cantidad"]<1:
                     self.eliminar(producto)
                 break
