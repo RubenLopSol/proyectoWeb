@@ -5,11 +5,21 @@
 
 
 {% block content %}
+<div class="container">
+    <div class="row">
+{% for producto in productos %}
+        <div class="card" style="width: 18rem; margin: auto;">
+            <img class="card-img-top" src="{{producto.imagen.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                <p class="card-text">{{producto.precio}} €</p>
+                <a href="#" class="btn btn-dark">Go somewhere</a>
+            </div>
+        </div>
 
-<div>
-    <p>
-        tienda
-    </p>
+{% endfor %}
+    </div>
 </div>
-
 {% endblock %}
+
+

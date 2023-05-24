@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'blogApp',
     'contactoApp',
     'tiendaApp',
+    'carro',
     
 ]
 
