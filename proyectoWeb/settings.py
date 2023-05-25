@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'tiendaApp',
     'carro',
     'autenticacion',
-    
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,8 @@ EMAIL_USE_TLS= True  # Autentication= True
 EMAIL_PORT= 587
 EMAIL_HOST_USER=os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD=os.environ.get("EMAIL_HOST_PASSWORD")
+
+
+# Carga del paquete crispy_forms en bootstrap
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
