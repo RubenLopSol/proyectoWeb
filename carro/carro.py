@@ -3,11 +3,11 @@ class Carro:
         self.request= request
         self.session= request.session
         #eliminar el self. de las 3 siguientes lineas despues de crear la s sesiones y autenticaciones:
-        self.carro=self.session.get("carro") 
-        if not self.carro:
-            self.carro=self.session["carro"]={}
-        # else:
-            #self.carro=carro
+        carro=self.session.get("carro") 
+        if not carro:
+            carro=self.session["carro"]={}
+        #else:
+        self.carro=carro
 
     def agregar(self, producto):
         if (str(producto.id) not in self.carro.keys()):

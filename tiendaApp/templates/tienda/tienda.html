@@ -7,16 +7,22 @@
 {% block content %}
 <div class="container">
 
-    <div class="card text-center" style="float: right;">
+    {% if request.user.is_authenticated %}
+    <div class="card text-center" style="float: right; color: black;">
         <h1>Carrito📥</h1>
         <h3>Total: {{importe_total_carro}} €</h3>
 
         {% include "carro/widget.html" %}  
     </div>
+    {% else %}
+    
+        <span class="alert alert-secondary" style="float: right; color: black;">Login para ver carro</span>
+    
+    {% endif%}
 
     <div class="row">
 {% for producto in productos %}
-        <div class="card" style="width: 18rem; margin: auto;">
+        <div class="card" style="width: 18rem; margin: auto; color:black;">
             <img class="card-img-top" src="{{producto.imagen.url}}" alt="Card image cap">
             <div class="card-body text-center">
                 <h5 class="card-title">{{producto.nombre}}</h5>

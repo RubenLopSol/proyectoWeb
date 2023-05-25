@@ -18,7 +18,17 @@
 
         {{ form|crispy }}
 
-        <button type="submit" class="btn btn-success"> Registrate</button>  
+        <button type="submit" class="btn btn-success"> Login </button>  
+
+        {% if messages %}
+
+        {% for mensaje in messages %}
+
+        <span class="alert alert-danger {{mensaje.tags}}">{{mensaje}}</span>
+            
+        {%  endfor %}
+
+        {% endif %}
 
     </div>
 

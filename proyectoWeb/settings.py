@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+from django.contrib.messages import constants as mensajes_de_error 
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -152,6 +153,18 @@ EMAIL_HOST_USER=os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD=os.environ.get("EMAIL_HOST_PASSWORD")
 
 
-# Carga del paquete crispy_forms en bootstrap
+# Carga del paquete crispy_forms en bootstrap:
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
+
+# Tema avisos de error en el login:
+
+MESSAGES_TAGS={
+
+    mensajes_de_error.DEBUG: 'debug',
+    mensajes_de_error.INFO: 'info',
+    mensajes_de_error.SUCCESS: 'success',
+    mensajes_de_error.WARNING: 'warning',
+    mensajes_de_error.ERROR: 'danger',
+
+}
