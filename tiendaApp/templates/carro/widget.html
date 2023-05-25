@@ -26,9 +26,27 @@
             {% endfor %}
         {% else %}
         <tr aria-colspan="3">    
-            <td>Sin productos</td>
+            <td>
+              <p>Sin productos</p>
+            </td>
         </tr>
         {% endif %}
+
+        <tfoot>
+
+          {%  if request.session.carro.items %}
+          <tr>
+
+            <td colspan="4" style="text-align: center;">
+
+              <a href="#" class="btn  btn-info" style="color: black;">Pedir</a>
+
+            </td>
+
+          </tr>
+          {%  endif %}
+
+        </tfoot>
       
       
       
