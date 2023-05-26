@@ -34,4 +34,5 @@ urlpatterns = [
 
     path('autenticacion/', include('autenticacion.urls')),
     
+    path('pedidos/', include('pedidosApp.urls')),
 ]

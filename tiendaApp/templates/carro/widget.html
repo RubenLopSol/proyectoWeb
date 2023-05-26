@@ -25,9 +25,11 @@
 
             {% endfor %}
         {% else %}
-        <tr aria-colspan="3">    
-            <td>
-              <p>Sin productos</p>
+        <tr>    
+            <td colspan="4" style="text-align: center;">
+              <div class="alert alert-info" role="alert">
+                Sin productos
+              </div>
             </td>
         </tr>
         {% endif %}
@@ -39,7 +41,7 @@
 
             <td colspan="4" style="text-align: center;">
 
-              <a href="#" class="btn  btn-info" style="color: black;">Pedir</a>
+              <a href="../pedidos" class="btn  btn-info" style="color: black;">Pedir</a>
 
             </td>
 
